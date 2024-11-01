@@ -1,8 +1,5 @@
 import streamlit as st
 import pandas as pd
-import requests
-import gdown
-import os
 import plotly.express as px
 import folium
 from folium.plugins import HeatMap, MarkerCluster
@@ -20,13 +17,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    file_id = "1Wu2syzFHaj851zkCMc65f6BDH-hw3Nq9"
-    url = f"https://drive.google.com/uc?id={file_id}"
-
-    output = "temp_data.csv.zip"
-    gdown.download(url, output, quiet=False)
-
-    df = pd.read_csv(output)
+    df = pd.read_csv('caguas_outages.csv')
     df['outage_time_utc'] = pd.to_datetime(df['outage_time_utc'])
     # Limpiar datos de coordenadas
     df = df.dropna(subset=['lat', 'lon'])

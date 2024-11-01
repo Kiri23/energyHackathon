@@ -1,7 +1,6 @@
 .venv
 # Ignorar archivos CSV grandes
-*.csv
-*.csv.zip
+*normalized_outage_data.v2fixed
 temp_data.csv.zip
 normalized_outage_data.v2fixed.csv
 normalized_outage_data.v2fixed.csv.zip
